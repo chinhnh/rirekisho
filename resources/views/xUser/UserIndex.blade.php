@@ -22,6 +22,9 @@
           <a>Role</a>
         </li>
       </ul>
+     <ul ><li><a href="{{ asset('create') }}"> ||   Add User</a></li></ul>
+
+
       <div class="search">
         <div class="search-forms" >
           <label class="search_icon" for="text">
@@ -43,6 +46,7 @@
           <th data-field="email" style="width: 25%;"><a>Email</a></th>
           <th style="width: 10%;">Type</th>
           <th style="width: 10%;">&nbsp</th>
+          <th style="width: 10%;">Status</th>
         </tr>
       </thead>
       <tbody id="list-table-body" data-reload="true">
@@ -62,6 +66,18 @@
           <td class="name">{{ $row->email }}  </td>
           <td> {{ $row->getRole() }}</td>
           <td><a href="{{url('User',[$row->id,'edit'])}}">Sửa</a></td>
+          <td>
+           <?php
+           if(($row->status)==0) 
+            echo "Active";
+           else 
+            echo "NotActive";
+           ?>
+
+         
+            <br/><a href="{{ asset('edit/')}}/{{ $row->id }}">Đổi</a>
+
+          </td>
         </tr>
         @endforeach
         <tr id="number-result" style="display: none;">

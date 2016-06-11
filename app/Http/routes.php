@@ -41,3 +41,7 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@myLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('edit/{id}','User_status@edit');
+Route::post('update/{id}','User_status@update');
+Route::get('/create','User_status@create');
+Route::post('/store','User_status@store');
