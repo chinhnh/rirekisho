@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\UserStatus;
 use Illuminate\Support\Facades\Input;
 use Hash;
-class UserstatusController extends Controller
-{
+
+class UserstatusController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -26,8 +25,7 @@ class UserstatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         return view('xUser.addVisitor');
     }
 
@@ -37,15 +35,14 @@ class UserstatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
-    {
-        $post=new UserStatus;
-        $post->name=\Request::get('name');
-        $post->email= \Request::get('email');
-        $post->role=\Request::get('role');
+    public function store() {
+        $post = new UserStatus;
+        $post->name = \Request::get('name');
+        $post->email = \Request::get('email');
+        $post->role = \Request::get('role');
         $pass = \Request::get('password');
-      
-        $post->password=Hash::make($pass);
+
+        $post->password = Hash::make($pass);
         $post->save();
         return \Redirect::to('User');
     }
@@ -56,8 +53,7 @@ class UserstatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -67,10 +63,9 @@ class UserstatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $post = UserStatus::find($id);
-        return view('xUser.User_status',compact(['id','post']));
+        return view('xUser.User_status', compact(['id', 'post']));
     }
 
     /**
@@ -80,14 +75,12 @@ class UserstatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
-    {
-        $post=UserStatus::find($id);
-        $post->id=$id;
-        $post->status=\Request::get('status');
+    public function update($id) {
+        $post = UserStatus::find($id);
+        $post->id = $id;
+        $post->status = \Request::get('status');
         $post->save();
         return \Redirect::to('User');
-
     }
 
     /**
@@ -96,8 +89,8 @@ class UserstatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

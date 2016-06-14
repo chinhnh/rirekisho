@@ -1,4 +1,5 @@
 <?php
+
 Route::controllers([
     'auth' => '\App\Http\Controllers\Auth\AuthController',
     'password' => '\App\Http\Controllers\Auth\PasswordController',
@@ -34,14 +35,13 @@ Route::group(['middleware' => ['auth', 'App\Http\Middleware\VisitorMiddleware']]
     Route::get('CV/search', 'CVController@search');
     Route::get('CV', 'CVController@index');
     Route::get('CV/{id}/getPDF', 'CVController@getPDF');
-
 });
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@myLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-Route::get('edit/{id}','UserstatusController@edit');
-Route::post('update/{id}','UserstatusController@update');
-Route::get('/create','UserstatusController@create');
-Route::post('/store','UserstatusController@store');
+Route::get('edit/{id}', 'UserstatusController@edit');
+Route::post('update/{id}', 'UserstatusController@update');
+Route::get('/create', 'UserstatusController@create');
+Route::post('/store', 'UserstatusController@store');
