@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\UserStatus;
 use Illuminate\Support\Facades\Input;
 use Hash;
-class User_status extends Controller
+class UserstatusController extends Controller
 {
     /**
      * Display a listing of the resource.
